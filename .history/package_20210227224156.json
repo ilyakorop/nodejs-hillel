@@ -1,0 +1,21 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "COLOR=blue node app.js ",
+    "custom": "node app.js --cpu",
+    "start:debug": "COLOR=red node --inspect-brk app.js --cpu  --ram"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "node-modules": "^1.0.1",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
