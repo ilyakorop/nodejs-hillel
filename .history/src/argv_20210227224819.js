@@ -27,7 +27,7 @@ const fullInfo = () => {
   releaseName();
 }
 
-exports.useArgs = () => {
+const useArgs = () => {
   const existArg = Object.keys(argv);
   if (existArg.includes('full-info')) {
     fullInfo();
@@ -41,4 +41,8 @@ exports.useArgs = () => {
       case('release'): return releaseName();
     }
   })
+}
+
+module.exports = {
+  useArgs
 }

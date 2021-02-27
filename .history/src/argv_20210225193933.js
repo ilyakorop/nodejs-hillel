@@ -3,8 +3,9 @@ const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
 const os = require('os');
 const chalk = require('chalk');
+console.log(process.argv);
 
-const cpu = () => console.log('CPU: ' + os.cpus()[0].model, 'Cores:' + os.cpus().length);
+const cpu = () => console.log('CPU: ' + chalk.yellow(os.cpus()[0].model));
 
 const ipLan = () => {
   const osNetwork = os.networkInterfaces().en0;
@@ -27,8 +28,10 @@ const fullInfo = () => {
   releaseName();
 }
 
-exports.useArgs = () => {
+const useArgs = () => {
+  console.log('argv', argv);
   const existArg = Object.keys(argv);
+  console.log('exist arg', existArg)
   if (existArg.includes('full-info')) {
     fullInfo();
     return;
@@ -41,4 +44,9 @@ exports.useArgs = () => {
       case('release'): return releaseName();
     }
   })
+}
+// useArgs();
+
+module.exports = {
+  useArgs
 }
