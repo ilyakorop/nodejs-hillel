@@ -1,6 +1,0 @@
-const yargs = require('yargs/yargs');
-const { hideBin } = require('yargs/helpers');
-const argv = yargs(hideBin(process.env)).argv;
-exports.short = () => {
-  console.log('short');
-}
