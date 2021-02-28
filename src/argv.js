@@ -4,7 +4,7 @@ const argv = yargs(hideBin(process.argv)).argv
 const os = require('os');
 const chalk = require('chalk');
 
-const cpu = () => console.log('CPU: ' + chalk.yellow(os.cpus()[0].model));
+const cpu = () => console.log('CPU: ' + os.cpus()[0].model, 'Cores:' + os.cpus().length);
 
 const ipLan = () => {
   const osNetwork = os.networkInterfaces().en0;
@@ -27,7 +27,7 @@ const fullInfo = () => {
   releaseName();
 }
 
-const useArgs = () => {
+exports.useArgs = () => {
   const existArg = Object.keys(argv);
   if (existArg.includes('full-info')) {
     fullInfo();
@@ -41,8 +41,4 @@ const useArgs = () => {
       case('release'): return releaseName();
     }
   })
-}
-
-module.exports = {
-  useArgs
 }
